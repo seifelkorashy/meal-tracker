@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useMeal } from "../../MealContext";
+import { Stack } from "@mui/material";
 
 export default function MealForm() {
   const [mealName, setMealName] = useState("");
@@ -36,15 +37,14 @@ export default function MealForm() {
         track your meals and calories easliy
       </p>
 
-      <div style={{ background: "#fff", padding: "20px", marginTop: "10px" }}>
-        <p style={{ color: "#6B7280", marginBottom: "10px" }}>add new meal</p>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            gap: "15px",
-          }}
+      <Stack
+        sx={{ background: "#fff", padding: "20px", marginTop: "10px" }}
+      >
+      <p style={{ color: "#6B7280", marginBottom: "15px", textAlign: "center" }}>add new meal</p>
+        <Stack
+          direction={{ xs: "column", sm: "row" }}
+        sx={{display:"flex", justifyContent:"space-between", alignItems:"center"}}
+        spacing={{ xs: 2, sm:0}}
         >
           <input
             type="text"
@@ -52,7 +52,6 @@ export default function MealForm() {
               padding: "8px 5px",
               border: "1px solid #E5E7EB",
               outline: "none",
-              width: "40%",
             }}
             placeholder="meal name"
             value={mealName}
@@ -84,8 +83,8 @@ export default function MealForm() {
           >
             add meal
           </button>
-        </div>
-      </div>
+        </Stack>
+      </Stack>
     </div>
   );
 }
